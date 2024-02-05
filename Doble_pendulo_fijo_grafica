@@ -1,17 +1,25 @@
-[t,y] = ode45(@doble_pendulo_fijo,[0 100], [0 35 0 0]);
-%Aqui se crea la figura donde se va a graficar el "y" con respecto a "t", "x" y "t" son 
-%parametros que retorna la funcion 'ode45'
+[t,x]=ode45(@doble_pendulo_fijo,[0 20], [0 (35*pi)/180 0 0]);
+
 figure(1)
-plot(t,y(:,1));
+plot(t,x(:,1),'b','LineWidth',2);
 grid on
-hold on
-title("Posicion");
+title("Grafica 1");
 xlabel("Tiempo");
 ylabel("Radianes");
 
 figure(2)
-plot(t,y(:,2));
+plot(t,x(:,2),'r','LineWidth',2);
 grid on
-title("Velocidad");
+title("Grafica 2");
 xlabel("Tiempo");
 ylabel("Radianes");
+
+figure(3)
+plot(t,x(:,1),'b','LineWidth',2);
+grid on
+hold on
+title("grafica 1 y 2 juntas");
+xlabel("Tiempo");
+ylabel("Radianes");
+plot(t,x(:,2),'r','LineWidth',2);
+grid on
